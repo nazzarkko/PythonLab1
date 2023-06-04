@@ -55,28 +55,89 @@ class LaptopManager:
         """
         return list(filter(lambda laptop: laptop.screen_size >= screen_size, self.laptops))
 
-    def __len__(self):
-        return len(self.laptops)
 
-    def __getitem__(self, item):
-        return self.laptops[item]
+def __len__(self):
+    """
+    Returns the number of laptops in the collection.
 
-    def __iter__(self):
-        return iter(self.laptops)
+    Returns:
+        int: The number of laptops.
+    """
+    return len(self.laptops)
 
-    def laptop_with_index(self):
-        for index, laptop in enumerate(self.laptops):
-            print(f"{index}: {laptop}")
 
-    def laptop_battery_list(self):
-        return [laptop.laptop_battery_list for laptop in self.laptops]
+def __getitem__(self, item):
+    """
+    Returns the laptop at the specified index.
 
-    def zipper(self):
-        for laptop, result in zip(self.laptops, self.laptop_battery_list()):
-            print(f"Our {laptop}: has {result} ")
+    Args:
+        item: The index of the laptop.
 
-    def any_laptop_has_ram_more_than_choosen(self, choosen_ram):
-        return any(laptop.ram >= choosen_ram for laptop in self.laptops)
+    Returns:
+        object: The laptop at the specified index.
+    """
+    return self.laptops[item]
 
-    def all_laptop_has_ram_more_than_choosen(self, choosen_ram):
-        return all(laptop.ram >= choosen_ram for laptop in self.laptops)
+
+def __iter__(self):
+    """
+    Returns an iterator over the laptops in the collection.
+
+    Returns:
+        iterator: An iterator over the laptops.
+    """
+    return iter(self.laptops)
+
+
+def laptop_with_index(self):
+    """
+    Prints the index and details of each laptop.
+    """
+    for index, laptop in enumerate(self.laptops):
+        print(f"{index}: {laptop}")
+
+
+def laptop_battery_list(self):
+    """
+    Returns a list of laptop battery details.
+
+    Returns:
+        list: A list of laptop battery details.
+    """
+    return [laptop.laptop_battery_list for laptop in self.laptops]
+
+
+def zipper(self):
+    """
+    Prints the laptop and its battery details using zip.
+    """
+    for laptop, result in zip(self.laptops, self.laptop_battery_list()):
+        print(f"Our {laptop}: has {result} ")
+
+
+def any_laptop_has_ram_more_than_choosen(self, choosen_ram):
+    """
+    Checks if any laptop has RAM greater than or equal to the specified value.
+
+    Args:
+        choosen_ram (int): The RAM size to compare against.
+
+    Returns:
+        bool: True if any laptop has RAM greater than or equal to the specified value,
+         False otherwise.
+    """
+    return any(laptop.ram >= choosen_ram for laptop in self.laptops)
+
+
+def all_laptop_has_ram_more_than_choosen(self, choosen_ram):
+    """
+    Checks if all laptops have RAM greater than or equal to the specified value.
+
+    Args:
+        choosen_ram (int): The RAM size to compare against.
+
+    Returns:
+        bool: True if all laptops have RAM greater than or equal to the specified
+         value, False otherwise.
+    """
+    return all(laptop.ram >= choosen_ram for laptop in self.laptops)
