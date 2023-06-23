@@ -1,0 +1,3 @@
+ERROR:root:Battery is not usable!
+ERROR:root:Battery is not usable!
+ERROR:root:Battery is not usable!
